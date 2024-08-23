@@ -1,0 +1,1 @@
+Put any files you want your web application to read statically from here.
