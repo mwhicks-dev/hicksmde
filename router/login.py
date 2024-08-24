@@ -7,21 +7,18 @@ LoginRouter = APIRouter()
 
 @LoginRouter.get("/login")
 async def serve_login():
-    response = requests.get("https://hicksm.dev/static/v1/wip/wip.html")
-    if response.ok:
-        return HTMLResponse(response.content, 200)
-    raise HTTPException(404)
+    with open("static/hicksmde-wip/v1/wip.html", "r") as fp:
+        content = ''.join(fp.readlines())
+    return HTMLResponse(content, 200)
 
 @LoginRouter.get("/signup")
 async def serve_signup():
-    response = requests.get("https://hicksm.dev/static/v1/wip/wip.html")
-    if response.ok:
-        return HTMLResponse(response.content, 200)
-    raise HTTPException(404)
+    with open("static/hicksmde-wip/v1/wip.html", "r") as fp:
+        content = ''.join(fp.readlines())
+    return HTMLResponse(content, 200)
 
 @LoginRouter.get("/logout")
 async def serve_logout():
-    response = requests.get("https://hicksm.dev/static/v1/wip/wip.html")
-    if response.ok:
-        return HTMLResponse(response.content, 200)
-    raise HTTPException(404)
+    with open("static/hicksmde-wip/v1/wip.html", "r") as fp:
+        content = ''.join(fp.readlines())
+    return HTMLResponse(content, 200)

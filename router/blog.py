@@ -7,7 +7,6 @@ BlogRouter = APIRouter()
 
 @BlogRouter.get("/blog")
 async def serve_blog():
-    response = requests.get("https://hicksm.dev/static/v1/wip/wip.html")
-    if response.ok:
-        return HTMLResponse(response.content, 200)
-    raise HTTPException(404)
+    with open("static/hicksmde-wip/v1/wip.html", "r") as fp:
+        content = ''.join(fp.readlines())
+    return HTMLResponse(content, 200)
