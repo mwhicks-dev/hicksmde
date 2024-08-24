@@ -1,0 +1,9 @@
+[submodule "static/hicksmde-home"]
+	path = static/hicksmde-home
+	url = git@github.com:mwhicks-dev/hicksmde-home.git
+[submodule "static/hicksmde-nav"]
+	path = static/hicksmde-nav
+	url = git@github.com:mwhicks-dev/hicksmde-nav.git
+[submodule "static/hicksmde-wip"]
+	path = static/hicksmde-wip
+	url = git@github.com:mwhicks-dev/hicksmde-wip.git
