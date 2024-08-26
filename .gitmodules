@@ -7,3 +7,6 @@
 [submodule "static/hicksmde-wip"]
 	path = static/hicksmde-wip
 	url = git@github.com:mwhicks-dev/hicksmde-wip.git
+[submodule "static/hicksmde-resume"]
+	path = static/hicksmde-resume
+	url = https://github.com/mwhicks-dev/hicksmde-resume.git
