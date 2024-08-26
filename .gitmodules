@@ -10,3 +10,6 @@
 [submodule "static/hicksmde-resume"]
 	path = static/hicksmde-resume
 	url = https://github.com/mwhicks-dev/hicksmde-resume.git
+[submodule "static/hicksmde-login"]
+	path = static/hicksmde-login
+	url = https://github.com/mwhicks-dev/hicksmde-login.git
