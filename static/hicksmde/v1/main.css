@@ -53,3 +53,7 @@ div.container_fluid div h1 {
 div.container_fluid div p {
     font-size: 25px;
 }
+
+div.container {
+    background-color: transparent !important;
+}
