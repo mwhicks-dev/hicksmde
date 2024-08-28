@@ -19,12 +19,6 @@ Docker deployment options available in Usage.
 Once dependencies installed, run
 
 ```bash
-gunicorn main:app --host 0.0.0.0 --port 80
-```
-
-or
-
-```bash
 uvicorn main:app --host 0.0.0.0 --port 80
 ```
 
