@@ -8,8 +8,3 @@ from router import routers
 app = FastAPI()
 for router in routers:
     app.include_router(router)
-
-app.mount("/static", StaticFiles(directory="static"))
-
-if __name__ == '__main__':
-    uvicorn.run("main:app", host="0.0.0.0", port=80, reload=True)

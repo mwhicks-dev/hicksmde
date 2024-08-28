@@ -19,10 +19,16 @@ Docker deployment options available in Usage.
 Once dependencies installed, run
 
 ```bash
-python main.py
+gunicorn main:app --host 0.0.0.0 --port 80
 ```
 
-and mapping ctl wil run on port 8000 of caller.
+or
+
+```bash
+uvicorn main:app --host 0.0.0.0 --port 80
+```
+
+and mapping ctl wil run on port 80 of caller.
 
 ## Usage
 
