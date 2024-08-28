@@ -10,4 +10,4 @@ RUN git checkout ${TARGET} && git pull
 RUN git submodule update --init --recursive
 RUN pip install -r requirements.txt
 
-ENTRYPOINT ["python", "main.py"]
+ENTRYPOINT ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80", "--workers", "4"]
