@@ -1,10 +1,15 @@
 html {
-    background-color: #694F8E;
+    background-color: #001011;
 }
 
 body {
     height: 100vh;
     color: #F6F2FF;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin: 0 1vw 0 1vw;
+    background-color: #694F8E;
+    font-family: Verdana;
 }
 
 a {
@@ -13,26 +18,28 @@ a {
 
 li.navitem a::after {
     background: #E3F09B;
-}    
+}
 
 div.rect {
     background-color: #222222;
     border-radius: 10px;
     border-width: 20px;
+    padding: 2em;
 }
 
 .half_width {
     width: 50%;
 }
 
-.half_height {
-    height: 50%;
-}
-
 .full_width {
     width: 100%;
 }
 
-.full_height {
-    height: 100%;
+div.nav {
+    height: 10vh;
+}
+
+div.content {
+    height: 90vh;
+    display: flex;
 }
