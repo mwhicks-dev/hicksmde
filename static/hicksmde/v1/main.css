@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    height: 90vh;
+    height: 100vh;
     color: #F6F2FF;
 }
 
@@ -11,32 +11,11 @@ a {
     color: #E3F09B;
 }
 
-li.navitem a {
-    display: block;
-    text-align: center;
-    text-decoration: none;
-    padding: 1em;
-    font-family: Verdana;
-    font-size: 1.25em;
-}
-
-
 li.navitem a::after {
     background: #E3F09B;
-}
+}    
 
-div.content {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    font-family: Verdana;
-}
-
-div.content div {
-    text-align: center;
-    margin: auto;
-    padding: 50px;
+div.rect {
     background-color: #222222;
     border-radius: 10px;
     border-width: 20px;
@@ -44,16 +23,4 @@ div.content div {
 
 .half_width {
     width: 50%;
-}
-
-div.container_fluid div h1 {
-    font-size: 4rem;
-}
-
-div.container_fluid div p {
-    font-size: 25px;
-}
-
-div.container {
-    background-color: transparent !important;
 }
