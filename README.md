@@ -26,14 +26,6 @@ and mapping ctl wil run on port 80 of caller.
 
 ## Usage
 
-### Dependencies
-
-**PyAcct**
-
-This webpage depends on a v1.x instance of [PyAcct](https://github.com/mwhicks-dev/pyacct). Ensure it is running, and that you have its URI (in the form of `pyacct_address:pyacct_port`) stored as an environment variable `URI_PYACCT`.
-
-### Run Webpage
-
 For simple local runtime, see the Quick Start section. This section will focus on Docker.
 
 Build script:
@@ -49,7 +41,7 @@ In order to specify a certain directory, use `--build-arg TARGET={tree_name}` (f
 Run script:
 
 ```bash
-docker run --rm -e URI_PYACCT={pyacct-address}:{pyacct-port} -p 80:80 hicksmde
+docker run --rm -p 80:80 hicksmde
 ```
 
 You can detach this using `-d` if you would like, but testing first without is recommended. A successful run will result in being able to access the website directly via `localhost` on a local browser, or by referencing the host's public IP address on a local web browser.
