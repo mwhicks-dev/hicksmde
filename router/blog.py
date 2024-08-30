@@ -7,6 +7,12 @@ BlogRouter = APIRouter()
 
 @BlogRouter.get("/blog")
 async def serve_blog():
-    with open("static/hicksmde-wip/v1/wip.html", "r") as fp:
+    with open("static/hicksmde-blog/v1/blog.html", "r") as fp:
+        content = ''.join(fp.readlines())
+    return HTMLResponse(content, 200)
+
+@BlogRouter.get("/blog/post/{post_id}")
+async def serve_blog_post(post_id: str):
+    with open("static/hicksmde-blog/v1/blog_post.html", "r") as fp:
         content = ''.join(fp.readlines())
     return HTMLResponse(content, 200)

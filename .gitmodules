@@ -13,3 +13,6 @@
 [submodule "static/hicksmde-login"]
 	path = static/hicksmde-login
 	url = https://github.com/mwhicks-dev/hicksmde-login.git
+[submodule "static/hicksmde-blog"]
+	path = static/hicksmde-blog
+	url = https://github.com/mwhicks-dev/hicksmde-blog.git
