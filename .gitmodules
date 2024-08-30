@@ -16,3 +16,6 @@
 [submodule "static/hicksmde-blog"]
 	path = static/hicksmde-blog
 	url = https://github.com/mwhicks-dev/hicksmde-blog.git
+[submodule "static/hicksmde-contact"]
+	path = static/hicksmde-contact
+	url = https://github.com/mwhicks-dev/hicksmde-contact.git
