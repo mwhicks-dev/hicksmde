@@ -19,3 +19,6 @@
 [submodule "static/hicksmde-contact"]
 	path = static/hicksmde-contact
 	url = https://github.com/mwhicks-dev/hicksmde-contact.git
+[submodule "static/hicksmde-projects"]
+	path = static/hicksmde-projects
+	url = https://github.com/mwhicks-dev/hicksmde-projects.git
