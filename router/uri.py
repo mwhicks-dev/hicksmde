@@ -5,7 +5,7 @@ UriRouter = APIRouter()
 
 @UriRouter.get("/uri/pyacct")
 async def serve_pyacct_uri():
-    with open("config.json", "r") as fp:
+    with open("config/config.json", "r") as fp:
         config = json.load(fp)
     try:
         return config['pyacct_uri']
@@ -15,7 +15,7 @@ async def serve_pyacct_uri():
     
 @UriRouter.get("/uri/authmail")
 async def serve_authmail_uri():
-    with open("config.json", "r") as fp:
+    with open("config/config.json", "r") as fp:
         config = json.load(fp)
     try:
         return config['authmail_uri']
