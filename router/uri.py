@@ -21,4 +21,4 @@ async def serve_authmail_uri():
         return config['authmail_uri']
     except KeyError:
         return HTTPException(status_code=404, 
-                             detail="No URI set for PyAcct")
+                             detail="No URI set for AuthMail")
