@@ -1,12 +1,24 @@
 [submodule "static/hicksmde-home"]
 	path = static/hicksmde-home
-	url = git@github.com:mwhicks-dev/hicksmde-home.git
+	url = https://github.com/mwhicks-dev/hicksmde-home.git
 [submodule "static/hicksmde-nav"]
 	path = static/hicksmde-nav
-	url = git@github.com:mwhicks-dev/hicksmde-nav.git
+	url = https://github.com/mwhicks-dev/hicksmde-nav.git
 [submodule "static/hicksmde-wip"]
 	path = static/hicksmde-wip
-	url = git@github.com:mwhicks-dev/hicksmde-wip.git
+	url = https://github.com/mwhicks-dev/hicksmde-wip.git
 [submodule "static/hicksmde-resume"]
 	path = static/hicksmde-resume
 	url = https://github.com/mwhicks-dev/hicksmde-resume.git
+[submodule "static/hicksmde-login"]
+	path = static/hicksmde-login
+	url = https://github.com/mwhicks-dev/hicksmde-login.git
+[submodule "static/hicksmde-blog"]
+	path = static/hicksmde-blog
+	url = https://github.com/mwhicks-dev/hicksmde-blog.git
+[submodule "static/hicksmde-contact"]
+	path = static/hicksmde-contact
+	url = https://github.com/mwhicks-dev/hicksmde-contact.git
+[submodule "static/hicksmde-projects"]
+	path = static/hicksmde-projects
+	url = https://github.com/mwhicks-dev/hicksmde-projects.git

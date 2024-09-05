@@ -7,6 +7,6 @@ ContactRouter = APIRouter()
 
 @ContactRouter.get("/contact")
 async def serve_contact():
-    with open("static/hicksmde-wip/v1/wip.html", "r") as fp:
+    with open("static/hicksmde-contact/v1/contact.html", "r") as fp:
         content = ''.join(fp.readlines())
     return HTMLResponse(content, 200)
