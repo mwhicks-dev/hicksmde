@@ -1,3 +1,4 @@
+#!/bin/bash
 INITIAL_DIR=$(pwd)
 
 mkdir -p ${HOME}/git

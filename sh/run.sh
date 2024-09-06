@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # copy SSL cert
 cp ${CERT_DIR}/*.pem ${HOME}/cert/
 

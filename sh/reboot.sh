@@ -1,6 +1,6 @@
+#!/bin/bash
 cd ${HOME}/git/hicksmde-mapping/sh
 
-git restore ./*
 git pull
 
 ./network.sh || true
