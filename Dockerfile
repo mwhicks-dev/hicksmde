@@ -2,6 +2,7 @@ FROM python:3.12-bookworm
 ARG TARGET=main
 
 RUN apt install git -y
+RUN mkdir /cert
 
 RUN git clone https://github.com/mwhicks-dev/hicksmde-mapping
 

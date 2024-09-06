@@ -47,7 +47,23 @@ In order to specify a certain directory, use `--build-arg TARGET={tree_name}` (f
 Run script:
 
 ```bash
-docker run --rm -v /$(pwd)/config/:/hicksmde-mapping/config/ -p 80:80 hicksmde
+docker run --rm \
+    -v /$(pwd)/config/:/hicksmde-mapping/config/ \
+    -p 80:{container-port} \
+    hicksmde --port {container-port} --workers {number-async-workers}
 ```
+
+This will run over HTTP To run over HTTPS, ensure first that you have working certs on your host. The Docker image has a directory `cert` available for you to provide your SSL info. To deploy with SSL enabled, instead run:
+
+```bash
+docker run --rm \
+    -v /$(pwd)/config/:/hicksmde-mapping/config/ \
+    -v /path/to/cert/readable/:/cert/ \
+    -p 443:{container-port} \
+    hicksmde --port {container-port} --workers {number-async-workers} \
+    --ssl-certfile /cert/cert.pem --ssl-keyfile /cert/privkey.pem --ssl-keyfile-password {your-kf-password}
+```
+
+You may need to copy your existing certs into a new directory so that the Docker image has permission to read them. Make sure these are not accessible to the web!
 
 You can detach this using `-d` if you would like, but testing first without is recommended. A successful run will result in being able to access the website directly via `localhost` on a local browser, or by accessing the host public IP by your web browser if it is remote.
