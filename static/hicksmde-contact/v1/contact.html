@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Contact</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- AngularJS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-cookies.js"></script>
+        <script src="/static/hicksmde-nav/v1/nav.js"></script>
+        <script src="/static/hicksmde-contact/v1/contact.js"></script>
+        <script src="/static/hicksmde-contact/v1/submodule/form.js"></script>
+        <!-- Style -->
+        <link rel="stylesheet" href="/static/hicksmde/v1/main.css">
+        <link rel="stylesheet" href="/static/hicksmde-nav/v1/nav.css">
+        <link rel="stylesheet" href="/static/hicksmde-contact/v1/contact.css">
+    </head>
+    <body ng-app="contact" ng-controller="contactCtl">
+        <div class="nav" ng-include="'/static/hicksmde-nav/v1/nav.html'"></div>
+        <div class="content" ng-if="authenticated" ng-include="'/static/hicksmde-contact/v1/submodule/form.html'"></div>
+        <div class="content" ng-if="!authenticated" ng-include="'/static/hicksmde-contact/v1/submodule/msg.html'"></div>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Resume</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- AngularJS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-cookies.js"></script>
+        <script src="/static/hicksmde-nav/v1/nav.js"></script>
+        <script src="/static/hicksmde-resume/v1/resume.js"></script>
+        <!-- Style -->
+        <link rel="stylesheet" href="/static/hicksmde/v1/main.css">
+        <link rel="stylesheet" href="/static/hicksmde-resume/v1/resume.css">
+        <link rel="stylesheet" href="/static/hicksmde-nav/v1/nav.css">
+    </head>
+    <body ng-app="resume">
+        <div class="nav" ng-include="'/static/hicksmde-nav/v1/nav.html'"></div>
+        <div class="content" ng-controller="resumeCtl">
+            <!-- RESUME CONTENT -->
+            <div id="sidebar" class="rect">
+                <h2>Education</h2>
+                <p ng-repeat="item in edu">
+                    <b>{{item.name}}</b> | {{item.time}}<br/>{{item.title}}
+                    <span ng-if="item.title != null && item.title !== ''"><br/>{{item.award}}</span>
+                </p>
+
+                <h2>Technical Skills</h2>
+                <p ng-repeat="skill in skills">
+                    <b>{{skill.label}}</b>: {{formatSkills(skill.items)}}
+                </p>
+
+                <h2>Contact</h2>
+                <p ng-repeat="item in contact">
+                    <b>{{item.key}}</b>: {{item.value}}
+                </p>
+            </div>
+            <div id="mainbar" class="rect">
+                <h2>Work Experience</h2>
+                <span ng-repeat="exp in work">
+                    <b>{{exp.title}}</b> | {{exp.stack}}<br/>{{exp.company}}, {{exp.time}}
+                    <ul>
+                        <li ng-repeat="item in exp.responsibilities">{{item}}</li>
+                    </ul>
+                </span>
+            </div>
+        </div>
+    </body>
+</html>

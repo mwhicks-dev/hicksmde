@@ -1,0 +1,48 @@
+button.formButton {
+    border: none;
+    padding: 15px 32px;
+    display: block;
+    font-size: 15px;
+    border-radius: 10px;
+    width: 60%;
+    margin: auto;
+    background-color: gray;
+    color: #F6F2FF;
+}
+
+button#signupButton {
+    background-color: #AC3931;
+}
+
+button#signupButton:hover {
+    background-color: #ac6231;
+}
+
+button#exitButton {
+    background-color: red;
+    float: right;
+    width: auto;
+    border-radius: 0;
+    margin: 0;
+    padding: 5px 10px;
+}
+
+button#exitButton:hover {
+    background-color: indianred;
+}
+
+button#submitButton {
+    background: #44A1A0;
+}
+
+button#submitButton:hover {
+    background-color: #2E6E6D;
+}
+
+button#loginButton {
+    background: #05B2DC;
+}
+
+button#loginButton:hover {
+    background: #05B;
+}

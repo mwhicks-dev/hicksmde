@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Blog</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- AngularJS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-cookies.js"></script>
+        <script src="/static/hicksmde-nav/v1/nav.js"></script>
+        <script src="/static/hicksmde-blog/v1/blog.js"></script>
+        <script src="/static/hicksmde-blog/v1/blog_post.js"></script>
+        <!-- Style -->
+        <link rel="stylesheet" href="/static/hicksmde/v1/main.css">
+        <link rel="stylesheet" href="/static/hicksmde-nav/v1/nav.css">
+        <link rel="stylesheet" href="/static/hicksmde-blog/v1/blog.css">
+    </head>
+    <body ng-app="blog">
+        <div ng-include="'/static/hicksmde-nav/v1/nav.html'"></div>
+        <div class="content" ng-controller="blogCtl">
+            <div id="blog_main" class="rect">
+                <h1>Posts</h1>
+                <hr class="half_width"/>
+                <div ng-repeat="post in posts" class="blog_item"
+                        ng-click="redirectToPost(post.id)">
+                    <p>
+                        <h2>{{post.title}}</h2><br/>
+                        {{post.date[0]}}/{{post.date[1]}}/{{post.date[2]}}
+                    </p>
+                    <p>
+                        {{truncate(post.content)}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Log In</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- AngularJS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-cookies.js"></script>
+        <script src="/static/hicksmde-login/v1/submodule/loginForm.js"></script>
+        <script src="/static/hicksmde-nav/v1/nav.js"></script>
+        <!-- Style -->
+        <link rel="stylesheet" href="/static/hicksmde-login/v1/form.css">
+        <link rel="stylesheet" href="/static/hicksmde-login/v1/button.css?v=2">
+        <link rel="stylesheet" href="/static/hicksmde/v1/main.css">
+        <link rel="stylesheet" href="/static/hicksmde-nav/v1/nav.css">
+    </head>
+    <body ng-app="login">
+        <div class="nav" ng-include="'/static/hicksmde-nav/v1/nav.html'"></div>
+        <div class="content">
+            <div class="rect formBox" ng-controller="loginCtl">
+                <p class="errMsg" ng-if="!environment.status_ok">{{environment.msg}}</p>
+                <form name="loginForm" class="userForm">
+                    <!-- Username -->
+                    <label for="usernameInput">Username</label>
+                    <input id="usernameInput" type="text" name="username" ng-model="data.username" required/>
+                    <br/>
+                
+                    <!-- Password -->
+                    <label for="passwordInput">Password</label>
+                    <input id="passwordInput" type="password" name="password" ng-model="data.password" required/>
+                    <br/>
+                
+                    <!-- Login button -->
+                    <br/>
+                    <button ng-if="ready()"
+                        class="formButton" id="loginButton" ng-click="login()">Log In</button>
+                    <button ng-if="!ready()"
+                        class="formButton">Log In</button>
+                    <hr class="half_width"/>
+                    <button class="formButton" id="signupButton" ng-click="signup()">Sign Up</button>
+                    
+                    <!-- Error messages -->
+                    <br ng-show="loginForm.username.$touched && loginForm.username.$invalid"/>
+                    <span class="errMsg" ng-show="loginForm.username.$touched && loginForm.username.$error.required">Username is required.</span>
+                    <br ng-show="loginForm.password.$touched && loginForm.password.$invalid"/>
+                    <span class="errMsg" ng-show="loginForm.password.$touched && loginForm.password.$error.required">Password is required.</span>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

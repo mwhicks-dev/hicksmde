@@ -1,0 +1,11 @@
+<div ng-controller="contactFormCtl" class="rect half_width center">
+    <span class="err_msg" ng-if="status_ok === false">{{err_msg}}</span>
+    <p>
+        Send me a message and I'll get back to you shortly via email.
+        Please add <a href="mailto:mason@hicksm.dev">mason@hicksm.dev</a> to your contacts so that you see when I reply.
+    </p>
+    <textarea id="msgText" ng-model="content"></textarea>
+    <br/>
+    <button id="formButton" ng-click="submitMessage()">Submit</button>
+    <p id="postText"></p>
+</div>

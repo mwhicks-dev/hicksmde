@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Project</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- AngularJS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-cookies.js"></script>
+        <script src="/static/hicksmde-nav/v1/nav.js"></script>
+        <script src="/static/hicksmde-projects/v1/projects.js"></script>
+        <script src="/static/hicksmde-projects/v1/project.js"></script>
+        <!-- Style -->
+        <link rel="stylesheet" href="/static/hicksmde/v1/main.css">
+        <link rel="stylesheet" href="/static/hicksmde-nav/v1/nav.css">
+        <link rel="stylesheet" href="/static/hicksmde-projects/v1/projects.css">
+    </head>
+    <body ng-app="projects" ng-controller="projectsCtl">
+        <div ng-include="'/static/hicksmde-nav/v1/nav.html'"></div>
+        <div class="content" ng-controller="projectCtl">
+            <div class="rect half_width" style="margin: auto;">
+                <p><h2>{{project.title}}</h2></p>
+                <p ng-if="project.url != null">URL: <a href="{{project.url}}">{{project.url}}</a></p>
+                <div id="post_body"></div>
+                
+                <div ng-if="showLinks()">
+                    Related links:
+                    <ul>
+                        <li ng-repeat="link in project.related">
+                            <a href="{{link}}">{{link}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+div#blog_main {
+    margin: auto;
+    text-align: center;
+    width: 80%;
+}
+
+div.blog_item {
+    margin: auto;
+    margin-top: 1em;
+    width: 90%;
+    text-align: left;
+    padding: 1em;
+    background-color: #594F3B;
+    border-radius: 1em;
+}
+
+div.blog_item:hover {
+    background-color: #74674d;
+}

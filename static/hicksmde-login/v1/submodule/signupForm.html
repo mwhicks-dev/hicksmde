@@ -1,0 +1,49 @@
+<div ng-controller="signupFormCtl">
+    <p class="errMsg" ng-show="!environment.status_ok">{{environment.msg}}</p>
+    <form name="signupForm" class="userForm" ng-controller="signupFormCtl">
+        <!-- Username -->
+        <label for="usernameInput">Username</label>
+        <input id="usernameInput" type="text" name="username" ng-model="data.username" required minlength="5" maxlength="32"/>
+        <br/>
+    
+        <!-- Password -->
+        <label for="passwordInput">Password</label>
+        <input id="passwordInput" type="password" name="password" ng-model="data.password" required minlength="8" maxlength="64" required/>
+        <br/>
+    
+        <!-- Password confirmation -->
+        <label for="passwordConfirmationInput">Confirm Password</label>
+        <input id="passwordConfirmationInput" name="passwordConfirmation" type="password" ng-model="data.passwordConfirmation"/>
+        <br/>
+    
+        <!-- Name -->
+        <label for="nameInput">Name</label>
+        <input id="nameInput" name="name" type="text" ng-model="attr.name" required/>
+        <br/>
+    
+        <!-- Email -->
+        <label for="emailInput">Email</label>
+        <input id="emailInput" name="email" type="email" ng-model="attr.email" required/>
+        <br/>
+    
+        <!-- Submit button -->
+        <button ng-if="ready()"
+            class="formButton" id="signupButton" ng-click="challenge();">Sign Up</button>
+        <button ng-if="!ready()"
+            class="formButton">Sign Up</button>
+        
+        <!-- Error messages -->
+        <br ng-show="signupForm.username.$touched && signupForm.username.$invalid"/>
+        <span class="errMsg" ng-show="signupForm.username.$touched && signupForm.username.$error.required">Username is required.</span>
+        <span class="errMsg" ng-show="signupForm.username.$touched && signupForm.username.$error.minlength">Username length must be at least 5.</span>
+        <br ng-show="signupForm.password.$touched && signupForm.password.$invalid"/>
+        <span class="errMsg" ng-show="signupForm.password.$touched && signupForm.password.$error.required">Password is required.</span>
+        <span class="errMsg" ng-show="signupForm.password.$touched && signupForm.password.$error.minlength">Password length must be at least 8.</span>
+        <span class="errMsg" ng-show="signupForm.password.$touched && signupForm.passwordConfirmation.$touched && data.password != data.passwordConfirmation">Passwords must match.</span>
+        <br ng-show="signupForm.name.$touched && signupForm.name.$invalid"/>
+        <span class="errMsg" ng-show="signupForm.name.$touched && signupForm.name.$error.required">Name is required.</span>
+        <br ng-show="signupForm.email.$touched && signupForm.email.$invalid"/>
+        <span class="errMsg" ng-show="signupForm.email.$touched && signupForm.email.$error.required">Email is required.</span>
+        <span class="errMsg" ng-show="signupForm.email.$touched && signupForm.email.$error.email">Invalid email address.</span>
+    </form>
+</div>

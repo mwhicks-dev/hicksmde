@@ -1,0 +1,29 @@
+<div ng-controller="loginCtl">
+    <p class="errMsg" ng-if="!environment.status_ok">{{environment.msg}}</p>
+    <form name="loginForm" class="userForm">
+        <!-- Username -->
+        <label for="usernameInput">Username</label>
+        <input id="usernameInput" type="text" name="username" ng-model="data.username" required/>
+        <br/>
+    
+        <!-- Password -->
+        <label for="passwordInput">Password</label>
+        <input id="passwordInput" type="password" name="password" ng-model="data.password" required/>
+        <br/>
+    
+        <!-- Login button -->
+        <br/>
+        <button ng-if="ready()"
+            class="formButton" id="loginButton" ng-click="login()">Log In</button>
+        <button ng-if="!ready()"
+            class="formButton">Log In</button>
+        <hr class="half_width"/>
+        <button class="formButton" id="signupButton" ng-click="signup()">Sign Up</button>
+        
+        <!-- Error messages -->
+        <br ng-show="loginForm.username.$touched && loginForm.username.$invalid"/>
+        <span class="errMsg" ng-show="loginForm.username.$touched && loginForm.username.$error.required">Username is required.</span>
+        <br ng-show="loginForm.password.$touched && loginForm.password.$invalid"/>
+        <span class="errMsg" ng-show="loginForm.password.$touched && loginForm.password.$error.required">Password is required.</span>
+    </form>
+</div>

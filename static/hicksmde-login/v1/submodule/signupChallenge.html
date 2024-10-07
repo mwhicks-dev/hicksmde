@@ -1,0 +1,15 @@
+<div ng-controller="signupChallengeCtl">
+    <button id="exitButton" class="formButton" ng-click="cancel()">X</button>
+    <div>
+        Please verify the one-time authentication code sent to your email address (possibly in your spam folder!) from info@hicksm.dev.<br/>
+        <form name="authForm" class="userForm">
+            <!-- OAC -->
+            <label for="oac">Code</label>
+            <input id="oac" ng-model="code" type="text" ng-model="responseValue"/>
+            <br/><br/>
+
+            <!-- Submit -->
+            <button id="submitButton" class="formButton" ng-click="response()">Submit</button>
+        </form>
+    </div>
+</div>

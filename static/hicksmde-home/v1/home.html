@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Home</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- AngularJS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-cookies.js"></script>
+        <script src="/static/hicksmde-nav/v1/nav.js"></script>
+        <script src="/static/hicksmde-home/v1/home.js"></script>
+        <!-- Style -->
+        <link rel="stylesheet" href="/static/hicksmde/v1/main.css?v=20">
+        <link rel="stylesheet" href="/static/hicksmde-nav/v1/nav.css">
+        <link rel="stylesheet" href="/static/hicksmde-home/v1/home.css">
+    </head>
+    <body ng-app="home">
+        <div class="nav" ng-include="'/static/hicksmde-nav/v1/nav.html'"></div>
+        <div class="content">
+            <div id="home" class="rect" ng-controller="homeCtl">
+                <h1>{{content.head}}</h1>
+                <div id="variable">
+                    <span ng-repeat="line in content.body">{{line}}</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

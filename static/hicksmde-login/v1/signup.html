@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Sign Up</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- AngularJS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-cookies.js"></script>
+        <script src="/static/hicksmde-nav/v1/nav.js"></script>
+        <script src="/static/hicksmde-login/v1/signup.js"></script>
+        <script src="/static/hicksmde-login/v1/submodule/signupForm.js"></script>
+        <script src="/static/hicksmde-login/v1/submodule/signupChallenge.js"></script>
+        <!-- Style -->
+        <link rel="stylesheet" href="/static/hicksmde-login/v1/form.css">
+        <link rel="stylesheet" href="/static/hicksmde-login/v1/button.css">
+        <link rel="stylesheet" href="/static/hicksmde/v1/main.css">
+        <link rel="stylesheet" href="/static/hicksmde-nav/v1/nav.css">
+    </head>
+    <body ng-app="signup">
+        <div ng-include="'/static/hicksmde-nav/v1/nav.html'"></div>
+        <div class="content" ng-controller="signupCtl">
+            <div class="rect formBox">
+                <div class="container" ng-if="environment.mode === 'form'" ng-include="'/static/hicksmde-login/v1/submodule/signupForm.html'"></div>
+                <div class="container" ng-if="environment.mode === 'challenge'" ng-include="'/static/hicksmde-login/v1/submodule/signupChallenge.html'"></div>
+            </div>
+        </div>
+    </body>
+</html>

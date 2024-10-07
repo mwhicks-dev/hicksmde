@@ -1,0 +1,37 @@
+form.userForm {
+    text-align: center;
+}
+
+form.userForm label {
+    float: left;
+}
+
+form.userForm input {
+    float: right;
+}
+
+input.ng-invalid {
+    background-color: indianred;
+}
+
+input.ng-pristine, input.ng-untouched {
+    background-color: white;
+}
+
+.errMsg {
+    display: block;
+    font-size:small;
+    text-align: left;
+    color: red;
+}
+
+.errDiv {
+    margin: 0;
+    padding: 0;
+}
+
+div.formBox {
+    margin: auto auto;
+    min-width: 30vh;
+    max-width: 50vh;
+}

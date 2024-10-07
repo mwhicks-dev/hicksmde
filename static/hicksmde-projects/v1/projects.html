@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Projects</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- AngularJS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-cookies.js"></script>
+        <script src="/static/hicksmde-nav/v1/nav.js"></script>
+        <script src="/static/hicksmde-projects/v1/projects.js"></script>
+        <script src="/static/hicksmde-projects/v1/project.js"></script>
+        <!-- Style -->
+        <link rel="stylesheet" href="/static/hicksmde/v1/main.css">
+        <link rel="stylesheet" href="/static/hicksmde-nav/v1/nav.css">
+        <link rel="stylesheet" href="/static/hicksmde-projects/v1/projects.css">
+    </head>
+    <body ng-app="projects">
+        <div class="nav" ng-include="'/static/hicksmde-nav/v1/nav.html'"></div>
+        <div class="content" ng-controller="projectsCtl">
+            <div id="projects_main" class="rect">
+                <h1>Projects</h1>
+                <hr class="half_width"/>
+                <div ng-repeat="project in projects" class="project half_width"
+                        ng-click="redirectToProject(project.id)">
+                    <h2>{{project.title}}</h2>
+                    <p>Stack: {{formatStack(project.stack)}}</p>
+                    <p>{{project.shortDescription}}</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

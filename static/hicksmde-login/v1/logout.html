@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Logging out...</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Style -->
+        <link rel="stylesheet" href="/static/hicksmde/v1/main.css">
+        <link rel="stylesheet" href="/static/hicksmde-nav/v1/nav.css">
+        <!-- AngularJS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-cookies.js"></script>
+        <script src="/static/hicksmde-nav/v1/nav.js"></script>
+        <script type="text/javascript">
+            /*<![CDATA[*/
+
+            var app = angular.module( "logout", ["nav", 'ngCookies'] );
+            app.run(function( $rootScope, $http, $cookies ) {
+                // TODO: Use HTTP to delete session
+
+                $cookies.remove('token');
+                window.location.replace('/');
+            });
+
+            /*]]>*/
+        </script>
+    </head>
+    <body ng-app="logout" ng-controller="logoutCtl">
+        <div ng-include="'/static/hicksmde-nav/v1/nav.html'"></div>
+    </body>
+</html>
