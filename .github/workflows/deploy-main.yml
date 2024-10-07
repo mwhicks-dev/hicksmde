@@ -53,8 +53,10 @@ jobs:
           export PYACCT_URI=${PYACCT_URI}
           export AUTHMAIL_URI=${AUTHMAIL_URI}
           ssh root@${SSH_HOST} \
-            -o SendEnv=CERT_DIR -o SendEnv=HICKSMDE_DIR \ 
-            -o SendEnv=PYACCT_URI -o SendEnv=AUTHMAIL_URI \
+            -o SendEnv=CERT_DIR \
+            -o SendEnv=HICKSMDE_DIR \ 
+            -o SendEnv=PYACCT_URI \
+            -o SendEnv=AUTHMAIL_URI \
             "
               docker run --name hicksmde \
                 -e PYACCT_URI=${PYACCT_URI} -e AUTHMAIL_URI=${AUTHMAIL_URI}
