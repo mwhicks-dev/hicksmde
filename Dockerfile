@@ -8,7 +8,6 @@ RUN git clone https://github.com/mwhicks-dev/hicksmde-mapping
 
 WORKDIR /hicksmde-mapping
 RUN git checkout ${TARGET} && git pull
-RUN git submodule update --init --recursive
 RUN pip install -r requirements.txt
 
 ENTRYPOINT ["uvicorn", "main:app", "--host", "0.0.0.0"]

@@ -5,7 +5,6 @@ on:
       - main
 jobs:
   build:
-    environment: PortfolioSite
     runs-on: ubuntu-24.04
     steps:
       - name: Configure SSH Environment
@@ -20,9 +19,47 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{secrets.KEY}}
           SSH_HOST: ${{secrets.HOST}}
-      - name: Configure and Build Docker Site
+      - name: Configure Build Enviornment
         run: |
-          ssh root@${SSH_HOST} "export HICKSMDE_DIR=/root/hicksmde-mapping && export CERT_DIR=/root/ssl && /root/entrypoint.sh"
+          export HICKSMDE_DIR=/root/hicksmde
+          export CERT_DIR=/root/ssl
+      - name: Build Docker Image
+        run: |
+          ssh root@${SSH_HOST} \
+            -o SendEnv=HICKSMDE_DIR \
+            "
+              if [ ! -d $HICKSMDE_DIR ]; then
+                cd /root
+                git clone https://github.com/mwhicks-dev/hicksmde.git
+              fi
+              cd $HICKSMDE_DIR
+              git pull
+              docker build --no-cache -t hicksmde .
+            "
+        shell: bash
+        env:
+          SSH_HOST: ${{secrets.HOST}}
+      - name: Stop Old Docker Container
+        run: |
+          ssh root@${SSH_HOST} \
+            "
+              docker stop hicksmde || true
+              docker rm hicksmde || true
+            "
+      - name: Run New Docker Container
+        run: |
+          ssh root@${SSH_HOST} \
+            -o SendEnv=CERT_DIR \
+            -o SendEnv=HICKSMDE_DIR \
+            "
+              docker run --name hicksmde \
+                -v /${HICKSMDE_DIR}/config:/hicksmde-mapping/config \
+                -v /${CERT_DIR}:/cert/ \
+                -p 443:8000 \
+                -d --restart=unless-stopped \
+                hicksmde --port 8000 --workers 1 \
+                --ssl-certfile /cert/fullchain.pem --ssl-keyfile /cert/privkey.pem
+            "
         shell: bash
         env:
           SSH_HOST: ${{secrets.HOST}}
