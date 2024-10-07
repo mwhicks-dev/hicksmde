@@ -23,6 +23,12 @@ jobs:
         run: |
           export HICKSMDE_DIR=/root/hicksmde
           export CERT_DIR=/root/ssl
+          export PYACCT_URI=${PYACCT_URI}
+          export AUTHMAIL_URI=${AUTHMAIL_URI}
+        shell: bash
+        env:
+          PYACCT_URI: ${{vars.PYACCT_URI}}
+          AUTHMAIL_URI: ${{vars.AUTHMAIL_URI}}
       - name: Build Docker Image
         run: |
           ssh root@${SSH_HOST} \
@@ -49,10 +55,11 @@ jobs:
       - name: Run New Docker Container
         run: |
           ssh root@${SSH_HOST} \
-            -o SendEnv=CERT_DIR \
-            -o SendEnv=HICKSMDE_DIR \
+            -o SendEnv=CERT_DIR -o SendEnv=HICKSMDE_DIR \ 
+            -o SendEnv=PYACCT_URI -o SendEnv=AUTHMAIL_URI \
             "
               docker run --name hicksmde \
+                -e PYACCT_URI=${PYACCT_URI} -e AUTHMAIL_URI=${AUTHMAIL_URI}
                 -v /${HICKSMDE_DIR}/config:/hicksmde-mapping/config \
                 -v /${CERT_DIR}:/cert/ \
                 -p 443:8000 \
