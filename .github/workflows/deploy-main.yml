@@ -43,6 +43,9 @@ jobs:
               docker stop hicksmde || true
               docker rm hicksmde || true
             "
+        shell: bash
+        env:
+          SSH_HOST: ${{secrets.HOST}}
       - name: Run New Docker Container
         run: |
           export HICKSMDE_DIR=/root/hicksmde
