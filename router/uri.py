@@ -1,24 +1,21 @@
-import json
+import os
+
 from fastapi import APIRouter, HTTPException
 
 UriRouter = APIRouter()
 
 @UriRouter.get("/uri/pyacct")
 async def serve_pyacct_uri():
-    with open("config/config.json", "r") as fp:
-        config = json.load(fp)
     try:
-        return config['pyacct_uri']
+        return os.environ["PYACCT_URI"]
     except KeyError:
         return HTTPException(status_code=404, 
-                             detail="No URI set for PyAcct")
+                             detail="No environment variable PYACCT_URI found")
     
 @UriRouter.get("/uri/authmail")
 async def serve_authmail_uri():
-    with open("config/config.json", "r") as fp:
-        config = json.load(fp)
     try:
-        return config['authmail_uri']
+        return os.environ["AUTHMAIL_URI"]
     except KeyError:
         return HTTPException(status_code=404, 
-                             detail="No URI set for AuthMail")
+                             detail="No environment variable AUTHMAIL_URI found")
