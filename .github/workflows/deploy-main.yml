@@ -1,0 +1,36 @@
+name: Build & Deploy Main
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    environment: PortfolioSite
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Configure SSH Environment
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          sudo chmod 600 ~/.ssh/id_ed25519
+          eval `ssh-agent -s`
+          ssh-add ~/.ssh/id_ed25519
+          ssh-keyscan -H $SSH_HOST > ~/.ssh/known_hosts
+        shell: bash
+        env:
+          SSH_PRIVATE_KEY: ${{secrets.KEY}}
+          SSH_HOST: ${{secrets.HOST}}
+      - name: Configure Build Environment
+        run: |
+          ssh root@${SSH_HOST} "export HICKSMDE_DIR=/root/hicksmde-mapping"
+          ssh root@${SSH_HOST} "export CERT_DIR=/root/ssl"
+        shell: bash
+        env:
+          SSH_HOST: ${{secrets.HOST}}
+      - name: Build and Deploy via Entrypoint
+        run: |
+          ssh root@${SSH_HOST} "/root/entrypoint.sh"
+        shell: bash
+        env:
+          SSH_HOST: ${{secrets.HOST}}
+          
