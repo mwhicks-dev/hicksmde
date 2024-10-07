@@ -19,18 +19,9 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{secrets.KEY}}
           SSH_HOST: ${{secrets.HOST}}
-      - name: Configure Build Enviornment
-        run: |
-          export HICKSMDE_DIR=/root/hicksmde
-          export CERT_DIR=/root/ssl
-          export PYACCT_URI=${PYACCT_URI}
-          export AUTHMAIL_URI=${AUTHMAIL_URI}
-        shell: bash
-        env:
-          PYACCT_URI: ${{vars.PYACCT_URI}}
-          AUTHMAIL_URI: ${{vars.AUTHMAIL_URI}}
       - name: Build Docker Image
         run: |
+          export HICKSMDE_DIR=/root/hicksmde
           ssh root@${SSH_HOST} \
             -o SendEnv=HICKSMDE_DIR \
             "
@@ -54,6 +45,10 @@ jobs:
             "
       - name: Run New Docker Container
         run: |
+          export HICKSMDE_DIR=/root/hicksmde
+          export CERT_DIR=/root/ssl
+          export PYACCT_URI=${PYACCT_URI}
+          export AUTHMAIL_URI=${AUTHMAIL_URI}
           ssh root@${SSH_HOST} \
             -o SendEnv=CERT_DIR -o SendEnv=HICKSMDE_DIR \ 
             -o SendEnv=PYACCT_URI -o SendEnv=AUTHMAIL_URI \
@@ -70,4 +65,6 @@ jobs:
         shell: bash
         env:
           SSH_HOST: ${{secrets.HOST}}
+          PYACCT_URI: ${{vars.PYACCT_URI}}
+          AUTHMAIL_URI: ${{vars.AUTHMAIL_URI}}
           
